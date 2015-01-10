@@ -90,7 +90,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             // Services.
             mPlusSignInButton.setVisibility(View.GONE);
             return;
-        }
+        } 
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
