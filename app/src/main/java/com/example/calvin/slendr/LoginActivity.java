@@ -7,6 +7,7 @@ import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -49,7 +50,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "designer@game.dev", "creator@rock.star"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -77,7 +78,11 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             mPlusSignInButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    signIn();
+                    //TODO: Activate Google+ Sign Ins
+                    //signIn();
+                    //Go to skills page
+                    Intent intent = new Intent(this, SkillsPage.class);
+                    startActivity(intent);
                 }
             });
         } else {
@@ -176,12 +181,10 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
         return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
@@ -388,6 +391,3 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
         }
     }
 }
-
-
-
