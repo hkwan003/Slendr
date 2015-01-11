@@ -74,7 +74,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
         // Find the Google+ sign in button.
         mPlusSignInButton = (SignInButton) findViewById(R.id.plus_sign_in_button);
         if (supportsGooglePlayServices()) {
-            // Set a listener to connect the user when the G+ button is clicked.
+            // Set a listener to connect the user when the G+ button is clicked.`
             mPlusSignInButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
