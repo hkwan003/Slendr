@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -34,6 +33,7 @@ import com.google.android.gms.common.SignInButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.calvin.slendr.SkillsPage;
 
 /**
  * A login screen that offers login via email/password and via Google+ sign in.
@@ -81,8 +81,8 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
                     //TODO: Activate Google+ Sign Ins
                     //signIn();
                     //Go to skills page
-                    //Intent intent = new Intent(this, SkillsPage.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(getApplicationContext(), SkillsPage.class);
+                    startActivity(intent);
                 }
             });
         } else {
