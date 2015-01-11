@@ -81,8 +81,8 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
                     //TODO: Activate Google+ Sign Ins
                     //signIn();
                     //Go to skills page
-                    Intent intent = new Intent(this, SkillsPage.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(this, SkillsPage.class);
+                    //startActivity(intent);
                 }
             });
         } else {
