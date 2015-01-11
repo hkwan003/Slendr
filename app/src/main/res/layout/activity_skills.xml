@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-<!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="@dimen/abc_text_size_body_1_material"
@@ -13,18 +12,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="@dimen/abc_text_size_body_1_material"
-        android:layout_gravity="left"
-        android:textAlignment="left"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:textStyle="normal"
         android:textColor="@color/primary_text"
         android:text="@string/skills_expl"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="+@id/skill_cycle_view"
         android:scrollbars="vertical">
 
     </android.support.v7.widget.RecyclerView>
--->
 
 </LinearLayout>
