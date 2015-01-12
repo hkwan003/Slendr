@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -16,15 +17,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -33,7 +32,6 @@ import com.google.android.gms.common.SignInButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.calvin.slendr.SkillsPage;
 
 /**
  * A login screen that offers login via email/password and via Google+ sign in.
@@ -50,7 +48,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "designer@game.dev", "creator@rock.star"
+            "designer@game.dev", "ruby@rock.star"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -66,12 +64,13 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     private View mSignOutButtons;
     private View mLoginFormView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        // Find the Google+ sign in button.
+        final Context context = this;
+        /*// Find the Google+ sign in button.
         mPlusSignInButton = (SignInButton) findViewById(R.id.plus_sign_in_button);
         if (supportsGooglePlayServices()) {
             // Set a listener to connect the user when the G+ button is clicked.`
@@ -80,9 +79,6 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
                 public void onClick(View view) {
                     //TODO: Activate Google+ Sign Ins
                     //signIn();
-                    //Go to skills page
-                    Intent intent = new Intent(getApplicationContext(), SkillsPage.class);
-                    startActivity(intent);
                 }
             });
         } else {
@@ -91,30 +87,23 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             mPlusSignInButton.setVisibility(View.GONE);
             return;
         }
-
+*/
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
-
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
-                    return true;
-                }
-                return false;
-            }
-        });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+//                attemptLogin();
+                Toast.makeText(view.getContext(), "Switch Activity", Toast.LENGTH_SHORT).show();
+                //go to skills page
+                Intent intent = new Intent(context, SkillsActivity.class);
+                startActivity(intent);
             }
         });
+
+        Toast.makeText(getApplicationContext(), "Start Activity", Toast.LENGTH_SHORT).show();
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
@@ -251,11 +240,11 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     @Override
     protected void updateConnectButtonState() {
         //TODO: Update this logic to also handle the user logged in by email.
-        boolean connected = getPlusClient().isConnected();
+       // boolean connected = getPlusClient().isConnected();
 
-        mSignOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
-        mPlusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
-        mEmailLoginFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
+       // mSignOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
+      //  mPlusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
+      //  mEmailLoginFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
     }
 
     @Override

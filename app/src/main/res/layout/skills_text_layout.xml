@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/abc_text_size_body_1_material"
+    android:layout_gravity="center_horizontal"
+    android:textAlignment="center"
+    android:textStyle="normal"
+    android:textColor="@color/primary_text"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+
