@@ -3,27 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textSize="40dp"
-        android:textColor="@color/primary_dark"
-        android:text="@string/skills_intro"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/abc_text_size_body_1_material"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="normal"
-        android:textColor="@color/primary_text"
-        android:text="@string/skills_expl"/>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:id="@+id/skill_cycle">
 
-    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="128dp"
+        android:layout_width="match_parent"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="@color/primary">
+<!--
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textSize="48sp"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:id="@+id/toolbar_title" /> -->
+     </android.support.v7.widget.Toolbar>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="24dp"
+            android:hint="Name"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="64dp"
+            android:scrollbars="vertical"
+            android:id="@+id/skill_cycle">
+        </android.support.v7.widget.RecyclerView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_shadow" />
+        </FrameLayout>
 
 </LinearLayout>
